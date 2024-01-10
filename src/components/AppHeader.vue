@@ -20,7 +20,7 @@ export default {
         </div>
         <div class="search_bar">
             <input type="text" placeholder="Cerca il film/serie tv" v-model="store.movieSearched">
-            <button>Search</button>
+            <button @click="$emit('search')">Search</button>
         </div>
     </header>
 </template>
