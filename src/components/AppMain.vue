@@ -1,5 +1,7 @@
 <script>
 
+import { store } from '../store';
+
 export default {
     name: "AppMain",
 
@@ -11,7 +13,7 @@ export default {
 
 }
 
-
+console.log(store.movieSearched);
 
 </script>
 
