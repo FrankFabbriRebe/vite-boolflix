@@ -4,6 +4,9 @@
 import AppHeader from './components/AppHeader.vue';
 import AppMain from './components/AppMain.vue';
 
+// import axios
+import axios from 'axios';
+
 // import store
 import { store } from './store';
 
@@ -20,6 +23,12 @@ export default {
     }
   },
 
+  methods: {
+    searchMedia() {
+      // metodo per richiamare api filtrata tramite axios
+    }
+  }
+
 }
 
 console.log(store.movieSearched);
@@ -27,8 +36,7 @@ console.log(store.movieSearched);
 </script>
 
 <template>
-  <AppHeader />
-  <!-- <AppHeader @search="searchMedia" /> -->
+  <AppHeader @search="searchMedia" />
   <AppMain />
 </template>
 
