@@ -59,11 +59,11 @@ export default {
             <img class="flag"
                 :src="flags[info.original_language] ? flags[info.original_language] : 'https://upload.wikimedia.org/wikipedia/commons/thumb/4/48/Gay_Pride_Flag.svg/1920px-Gay_Pride_Flag.svg.png'"
                 :alt="info.original_language">
-            <h4>{{ info.vote_average }}</h4>
             <div class="vote">
                 <i v-for="star in 5" class="fa-solid fa-star"
                     :style="{ color: star <= roundVoteAverage() ? '#FFD43B' : '#ccc' }"></i>
             </div>
+            <h3>{{ info.overview }}</h3>
         </div>
 
     </div>
@@ -117,7 +117,9 @@ img {
     align-items: center;
     flex-direction: column;
     gap: 20px;
-    padding-top: 10px;
+    padding: 10px;
+    text-align: center;
+    overflow-y: auto;
 }
 
 .back_side {
