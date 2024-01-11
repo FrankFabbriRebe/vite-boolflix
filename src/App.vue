@@ -24,14 +24,28 @@ export default {
   },
 
   methods: {
+    // method to call filtered api based on user input
     searchMedia() {
-      // metodo per richiamare api filtrata tramite axios
+      if (store.movieSearched !== "") {
+        let filteredApiUrl = `${store.apiURL}&query=${store.movieSearched}`;
+
+        //axios call 
+        axios.get(filteredApiUrl)
+          .then((response) => {
+            // console.log(response.data);
+            store.moviesArray = response.data;
+            console.log(store.moviesArray);
+          })
+          .catch((error) => {
+            console.log('Errore nella chiamata API Movies', error);
+          });
+      } else {
+        console.log('Inserisci una stringa di ricerca valida');
+      }
     }
   }
 
 }
-
-console.log(store.movieSearched);
 
 </script>
 
