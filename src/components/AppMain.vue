@@ -24,10 +24,19 @@ export default {
 </script>
 
 <template>
+    <!-- movies container -->
     <div class="container" v-if="store.moviesArray.length !== 0">
-        <h1>Film</h1>
+        <h1>Movies</h1>
         <div class="container_movie">
-            <AppCard />
+            <AppCard v-for="(element, i) in store.moviesArray" :key="i" :info="element" />
+        </div>
+    </div>
+
+    <!-- tv series container -->
+    <div class="container" v-if="store.tvSeriesArray.length !== 0">
+        <h1>TV series</h1>
+        <div class="container_movie">
+            <AppCard v-for="(element, i) in store.tvSeriesArray" :key="i" :info="element" />
         </div>
     </div>
 </template>
