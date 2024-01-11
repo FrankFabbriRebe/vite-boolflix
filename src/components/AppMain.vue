@@ -1,14 +1,13 @@
 <script>
 
-import { store } from '../store';
+// import components
+import AppCard from './AppCard.vue';
 
 export default {
     name: "AppMain",
 
-    data() {
-        return {
-            store,
-        }
+    components: {
+        AppCard
     },
 
 }
@@ -17,13 +16,7 @@ export default {
 
 <template>
     <div class="container">
-
-        <div v-for="(element, i) in store.moviesArray" :key="i" class="card">
-            <!-- debug -->
-            <h1>immagine</h1>
-            <!-- <img src="" alt=""> -->
-        </div>
-
+        <AppCard />
     </div>
 </template>
 
@@ -34,17 +27,9 @@ export default {
     display: flex;
     gap: 10px;
     flex-wrap: wrap;
-    justify-content: center;
+    /* justify-content: center; */
     /* debug */
-    height: 500px;
-    border: 2px solid black;
-}
-
-.card {
-    width: calc(100% / 3 - 10px);
-    /* debug */
-    background-color: blue;
-    height: 200px;
-
+    /* height: 500px;
+    border: 2px solid black; */
 }
 </style>
