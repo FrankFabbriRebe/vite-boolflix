@@ -28,12 +28,13 @@ export default {
     searchMedia() {
       if (store.movieSearched !== "") {
         let filteredApiUrl = `${store.apiURL}&query=${store.movieSearched}`;
+        // console.log(filteredApiUrl);
 
         //axios call 
         axios.get(filteredApiUrl)
           .then((response) => {
-            // console.log(response.data);
-            store.moviesArray = response.data;
+            // console.log(response.data.results);
+            store.moviesArray = response.data.results;
             console.log(store.moviesArray);
           })
           .catch((error) => {
