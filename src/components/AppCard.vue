@@ -16,9 +16,10 @@ export default {
 
 <template>
     <div v-for="(element, i) in store.moviesArray" :key="i" class="card">
-        <!-- <h1>immagine</h1> -->
-        <img :src="element.poster_path" alt="">
-        <h1>{{ element.original_title }}</h1>
+        <h1>{{ element.title }}</h1>
+        <h2>{{ element.original_title }}</h2>
+        <h3>{{ element.original_language }}</h3>
+        <h4>{{ element.vote_average }}</h4>
     </div>
 </template>
 
@@ -26,8 +27,14 @@ export default {
 .card {
     width: calc(100% / 3 - 10px);
     /* debug */
-    background-color: blue;
-    height: 200px;
+    border: 2px solid black;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
 
+h1,
+h2 {
+    text-align: center;
 }
 </style>
