@@ -29,6 +29,7 @@ export default {
 
 <template>
     <div class="card">
+        <img :src="store.baseUrlImg + info.poster_path" alt="">
         <h1>{{ info.title || info.name }}</h1>
         <h2>{{ info.original_title }}</h2>
         <img :src="flags[info.original_language] ? flags[info.original_language] : 'https://upload.wikimedia.org/wikipedia/commons/thumb/4/48/Gay_Pride_Flag.svg/1920px-Gay_Pride_Flag.svg.png'"
