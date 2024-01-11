@@ -24,14 +24,15 @@ export default {
   },
 
   methods: {
+
     // method to call filtered api based on user input
     searchMedia() {
-      if (store.movieSearched !== "") {
-        let filteredApiUrl = `${store.apiURL}&query=${store.movieSearched}`;
-        // console.log(filteredApiUrl);
+      if (store.textSearched !== "") {
+        let filteredApiUrlMovies = `${store.apiURLMovies}&query=${store.textSearched}`;
+        let filteredApiUrlTvSeries = `${store.apiUrlTvSeries}&query=${store.textSearched}`;
 
-        //axios call 
-        axios.get(filteredApiUrl)
+        //axios call for filteredApiUrlMovie
+        axios.get(filteredApiUrlMovies)
           .then((response) => {
             // console.log(response.data.results);
             store.moviesArray = response.data.results;
@@ -40,10 +41,27 @@ export default {
           .catch((error) => {
             console.log('Errore nella chiamata API Movies', error);
           });
+
+        // console.log(filteredApiUrlMovies);
+
+        // axios call for filteredApiUrlTvSeries
+        axios.get(filteredApiUrlTvSeries)
+          .then((response) => {
+            // console.log(response.data.results);
+            store.tvSeriesArray = response.data.results;
+            console.log(store.tvSeriesArray);
+          })
+          .catch((error) => {
+            console.log('Errore nella chiamata API Movies', error);
+          });
+
+        // console.log(filteredApiUrlTvSeries);
+
       } else {
         console.log('Inserisci una stringa di ricerca valida');
       }
     }
+
   }
 
 }
