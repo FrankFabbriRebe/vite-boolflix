@@ -19,7 +19,7 @@ export default {
             <h1>BOOLFLIX</h1>
         </div>
         <div class="search_bar">
-            <input type="text" placeholder="Cerca il film/serie tv" v-model="store.movieSearched">
+            <input type="text" placeholder="Cerca il film/serie tv" v-model="store.textSearched">
             <button @click="$emit('search')">Search</button>
         </div>
     </header>
