@@ -5,6 +5,10 @@ import { store } from '../store';
 export default {
     name: 'AppCard',
 
+    props: {
+        info: Object,
+    },
+
     data() {
         return {
 
@@ -24,12 +28,12 @@ export default {
 </script>
 
 <template>
-    <div v-for="(element, i) in store.moviesArray" :key="i" class="card">
-        <h1>{{ element.title }}</h1>
-        <h2>{{ element.original_title }}</h2>
-        <img :src="flags[element.original_language] ? flags[element.original_language] : 'https://upload.wikimedia.org/wikipedia/commons/thumb/4/48/Gay_Pride_Flag.svg/1920px-Gay_Pride_Flag.svg.png'"
-            :alt="element.original_language">
-        <h4>{{ element.vote_average }}</h4>
+    <div class="card">
+        <h1>{{ info.title || info.name }}</h1>
+        <h2>{{ info.original_title }}</h2>
+        <img :src="flags[info.original_language] ? flags[info.original_language] : 'https://upload.wikimedia.org/wikipedia/commons/thumb/4/48/Gay_Pride_Flag.svg/1920px-Gay_Pride_Flag.svg.png'"
+            :alt="info.original_language">
+        <h4>{{ info.vote_average }}</h4>
     </div>
 </template>
 
