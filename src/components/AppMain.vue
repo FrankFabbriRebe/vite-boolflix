@@ -13,14 +13,12 @@ export default {
 
 }
 
-console.log(store.movieSearched);
-
 </script>
 
 <template>
     <div class="container">
 
-        <div class="card">
+        <div v-for="(element, i) in store.moviesArray" :key="i" class="card">
             <!-- debug -->
             <h1>immagine</h1>
             <!-- <img src="" alt=""> -->
