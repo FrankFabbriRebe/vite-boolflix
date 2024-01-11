@@ -23,7 +23,20 @@ export default {
 
         }
     },
+
+    methods: {
+        roundVoteAverage() {
+            if (this.info.vote_average !== undefined) {
+                return Math.min(5, Math.ceil(this.info.vote_average / 2));
+            }
+            return '';
+        }
+    },
+
 }
+
+
+
 
 </script>
 
@@ -35,6 +48,10 @@ export default {
         <img :src="flags[info.original_language] ? flags[info.original_language] : 'https://upload.wikimedia.org/wikipedia/commons/thumb/4/48/Gay_Pride_Flag.svg/1920px-Gay_Pride_Flag.svg.png'"
             :alt="info.original_language">
         <h4>{{ info.vote_average }}</h4>
+        <div class="vote">
+            <i v-for="star in 5" class="fa-solid fa-star"
+                :style="{ color: star <= roundVoteAverage() ? '#FFD43B' : '#ccc' }"></i>
+        </div>
     </div>
 </template>
 
