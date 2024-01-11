@@ -12,4 +12,7 @@ export const store = reactive({
 
     textSearched: "",
 
+    // base URL for imgs
+    baseUrlImg: "https://image.tmdb.org/t/p/w342",
+
 })
