@@ -42,7 +42,7 @@ export default {
 
     <!-- movies container -->
     <div class="container" v-if="store.moviesArray.length !== 0">
-        <h1>Movies</h1>
+        <h1>Film</h1>
         <div class="container_movie">
             <AppCard v-for="(element, i) in store.moviesArray" :key="i" :info="element" type="movies" />
         </div>
@@ -50,7 +50,7 @@ export default {
 
     <!-- tv series container -->
     <div class="container" v-if="store.tvSeriesArray.length !== 0">
-        <h1>TV series</h1>
+        <h1>Serie tv</h1>
         <div class="container_movie">
             <AppCard v-for="(element, i) in store.tvSeriesArray" :key="i" :info="element" type="tvSeries" />
         </div>
